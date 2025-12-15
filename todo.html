@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do-list</title>
+</head>
+<body>
+    <input type="text" id="item1">
+    <button id="addBtn" onclick="add()">Add</button>
+    <button id="clear" onclick="clearData()">clear</button>
+    <div id="items"></div>
+
+    <script>
+        function add() {
+            let item = document.getElementById("item1").value;
+            localStorage.setItem("itemName", item);
+
+   
+           let div = document.createElement("div");
+            div.textContent = localStorage.getItem("itemName");
+            document.getElementById("items").appendChild(div);
+           
+    
+        }
+        function clearData(){
+            localStorage.clear();
+            document.getElementById("items").replaceChildren()
+        }
+
+    
+    </script>
+</body>
+</html>

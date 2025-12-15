@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+</head>
+<style>
+    body{
+        margin: 10px;
+        padding: 20px;
+       
+    }
+    .calc{
+        border: 5px solid rgb(85, 26, 26);
+ display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        max-height: fit-content;
+        width: 100px;
+    }
+    .input{
+        width: 100px;
+    }
+</style>
+<body>
+   <input class="input" type="numbers" placeholder="enter">
+    <div class="calc">
+        <div class="buttons"><button onclick="get(1)">1</button></div>
+        <div class="buttons"><button onclick="get(2)">2</button></div>
+        <div class="buttons"><button onclick="get(3)">3</button></div>
+        <div class="buttons"><button onclick="get(4)">4</button></div>
+        <div class="buttons"><button onclick="get(5)">5</button></div>
+        <div class="buttons"><button onclick="get(6)">6</button></div>
+        <div class="buttons"><button onclick="get(7)">7</button></div>
+        <div class="buttons"><button onclick="get(8)">8</button></div>
+        <div class="buttons"><button onclick="get(9)">9</button></div>
+        <div class="buttons"><button onclick="get(0)">0</button></div>
+        <div class="buttons"><button onclick="get('=')">=</button></div>
+        <div class="buttons"><button onclick="get('+')">+</button></div>
+        <div class="buttons"><button onclick="get('-')">-</button></div>
+        <div class="buttons"><button onclick="get('*')">*</button></div>
+        <div class="buttons"><button onclick="get('/')">/</button></div>
+    </div>
+    
+    <script>
+        function get(a){
+            
+        }
+    </script>
+</body>
+</html>

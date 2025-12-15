@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .parent{
+            display: flex;
+            align-items: center;
+             justify-content: center;
+           
+            flex-direction: column;
+        }
+        .block{
+            border: 2px solid navy;
+            border-radius: 20px;
+            padding: 5px;
+            background-color: #FFFDD0;
+            display: flex;
+            align-items: center;
+             justify-content: center;
+             flex-direction: column;
+        }
+        .block p{
+            text-transform: capitalize;
+        }
+        .parent img{
+            height: 50px;
+            width: 50px;
+        }
+        .img-container{
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+        }
+        .img-container2{
+            height: 55%;
+            width: 55%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <div class="img-container">
+
+            <img src="https://www.clipartbest.com/cliparts/yio/g99/yiog99dpT.png" alt="">
+            <h3>Weather Application</h1>
+                <img src="https://www.clipartbest.com/cliparts/yck/gAp/yckgApRKi.png" alt="">
+            </div>
+        <div class="block">
+<p>📍 Nagarjun-5,Kathmandu</p>  
+       <p>temperature today:</p>     <p id="data"></p>
+       <p class="adivice" id="advice"></p>
+        </div>
+        <div class="img-container2">
+            
+        <img src="https://www.clipartbest.com/cliparts/dTr/aXB/dTraXBxXc.png" alt="">
+        <img src="https://www.clipartbest.com/cliparts/9cR/R48/9cRR487ce.gif" alt="">
+        </div>
+    </div>
+    <script>
+        async function getData() {
+            let result = await fetch("https://api.open-meteo.com/v1/forecast?latitude=27.716&longitude=85.2637&current_weather=true");
+            let data = await result.json();
+            console.log(data);
+           document.getElementById("data").innerText = data.current_weather.temperature + " °C";
+            let temp = data.current_weather.temperature;
+            if(temp<=0){
+                document.getElementById("advice").innerHTML = "Very cold Wear thick layers";
+            }
+            else if(temp>0 && temp<=10){
+                document.getElementById("advice").innerHTML = "Chilly; you’ll need warm clothing.";
+
+            }
+             else if(temp>10 && temp<=20){
+                document.getElementById("advice").innerHTML = "Comfortable but may feel cool.";
+
+            }
+             else if(temp>20 && temp<=27){
+                document.getElementById("advice").innerHTML = "Comfortable warmth; not too hot.";
+
+            }
+             else if(temp>28 && temp<=34){
+                document.getElementById("advice").innerHTML = "You’ll feel the heat, especially in the sun.";
+
+            }
+             else if(temp>35){
+                document.getElementById("advice").innerHTML = "Strong heat, risk of dehydration.";
+
+            }
+        }
+        getData();
+        setInterval(getData,6000);
+    </script>
+</body>
+</html>
