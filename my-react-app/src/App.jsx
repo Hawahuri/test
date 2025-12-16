@@ -1,12 +1,13 @@
 import React from 'react'
+import AppRoutes from './Routes';
 
-import Post from './components/Post.jsx'
 
 function App() {
  return(
   
-    <Post/>
- )
+   <AppRoutes />
+  
+ );
 }
 
 export default App
