@@ -1,0 +1,18 @@
+.form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    margin: 20px;
+      height: 100vh; 
+}
+label {
+  margin-bottom: 10px;  /* Adjust the value as needed */
+  display: block;       /* Ensures the label takes up full width */
+}
+
+input {
+  padding: 5px;  /* Optional: for better input styling */
+}
