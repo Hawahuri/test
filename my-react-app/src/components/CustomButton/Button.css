@@ -1,0 +1,24 @@
+
+
+.primary{
+    background-color: blue;
+   
+}
+.primary:hover{
+    background-color: white;
+    color: blue;
+    translate: 10px;
+}
+
+.outline{
+    background-color: white;
+    color: blue;
+
+}
+
+.outline:hover{
+    background-color: blue;
+    color:white;
+    translate: 10px;
+
+}

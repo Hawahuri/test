@@ -3,9 +3,12 @@ import AppRoutes from './Routes';
 
 
 function App() {
+  const userInfo = {
+    name: "shreyan",
+    role: "cashier"
+  }
  return(
-  
-   <AppRoutes />
+   <AppRoutes userInfo={userInfo}/>
   
  );
 }

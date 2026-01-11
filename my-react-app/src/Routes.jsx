@@ -1,16 +1,16 @@
-import React from 'react'
+import React, { use } from 'react'
 import {BrowserRouter,Route,Routes} from "react-router-dom"
 import About from './pages/About'
 import Contacts from './pages/Contacts'
 import Home from './pages/Home'
 import Layout from './Layout'
 
-export default function AppRoutes() {
+export default function AppRoutes({userInfo}) {
   return (
     <BrowserRouter>
     
     <Routes>
-          <Route path="/" element={<Layout />}>
+          <Route path="/" element={<Layout userInfo={userInfo} />}>
         <Route path='/about' element={<About />} />
         <Route path='/contact' element={<Contacts/>}/>
           <Route index element={<Home />} />

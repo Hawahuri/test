@@ -1,13 +1,15 @@
 // Layout.jsx
 import { Outlet, Link } from "react-router-dom";
 
-function Layout() {
+function Layout({userInfo}) {
   return (
     <>
       
       <nav style={{ padding: "10px", background: "#222",position: "fixed",top:0,left:0,right:0,} }>
+        <p>welcome {userInfo.name}</p>
+        <p>you are a {userInfo.role}</p>
         <Link to="/" style={{ color: "white", marginRight: "10px" }}>
-          Home
+          Home 
         </Link>
         <Link to="/about" style={{ color: "white", marginRight: "10px" }}>
           About
