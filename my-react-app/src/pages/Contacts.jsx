@@ -1,61 +1,34 @@
-import React, { useState } from "react";
-import './Contact.css'
+import {useForm} from 'react-hook-form'
 export default function Contacts() {
-  // const [name,setName] = useState("")
-  // const [email,setEmail] = useState("")
-  // const [msg,setMsg] = useState("")
-  // const [language,setLanguage] = useState("")
-  // const [food,setFood] = useState("")
-
-  const [formData,setFormData] = useState({
-    name:'',
-    email:'',
-    msg:''
-  })
-
-  const onChangeInput = (e)=>{
-    setFormData({...formData,[e.target.value]:e.target.value})
-    console.log(formData)
-  }
-
-  const handleSubmission = (e)=>{
-    e.preventDefault()
-
-    const formData = {
-      name : name,
-      email : email,
-      msg : msg,
-      language : language,
-      food : food
-    }
-console.log(formData)
-  }
+  const {register,handleSubmit,formState:{errors},reset,
+} = useForm();
+  
   return (
     <>
     <br />
     <br />
-    <form  className="form" onSubmit={handleSubmission}>
+    <form  className="form" >
     <div className="form-group">
-      <input type="text" placeholder='Enter your name' onChange={onChangeInput} />
+      <input type="text" placeholder='Enter your name' {...register("name",{required:"name  is required",})} />
     </div>
 
      <div className="form-group">
-      <input type="email" placeholder='Enter your email' onChange={onChangeInput} />
+      <input type="email" placeholder='Enter your email'  {...register("email",{required:"email  is required",})} />
     </div>
 
      <div className="form-group">
-      <textarea  placeholder='Enter your feedback' onChange={onChangeInput} />
+      <textarea  placeholder='Enter your feedback'  {...register("message",{required:"message  is required",})} />
     </div>
     
     <div className="form-group">
       <label htmlFor="fav_language_input">Choose your Fav Language</label><br></br>
-  <input type="radio" name='fav_language' value="c++" onChange={onChangeInput}/>
+  <input type="radio" name='fav_language' value="c++"/>
   <label htmlFor="c++">C++</label>
 
-   <input type="radio" name='fav_language' value="c" onChange={onChangeInput}/>
+   <input type="radio" name='fav_language' value="c"/>
   <label htmlFor="c">C</label>
 
-   <input type="radio" name='fav_language' value="js" onChange={onChangeInput} />
+   <input type="radio" name='fav_language' value="js" />
   <label htmlFor="js">js</label>
     </div>
 
@@ -65,7 +38,7 @@ console.log(formData)
     <select
   id="food"
 
-  onChange={onChangeInput}
+ 
 >
   <option value="momo">MOMO</option>
   <option value="coke">Coke</option>
